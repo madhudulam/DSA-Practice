@@ -37,3 +37,18 @@ print(ob.twoSum(nums = [2,7,11,15], target = 9))
 
 # Input: nums = [3,3], target = 6
 # Output: [0,1]
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        prevMap = {} # val -> index
+        
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            prevMap[n] = i
+
+ob1 = Solution()
+print(ob1.twoSum(nums = [2,7,11,15], target = 9))
+print(ob1.twoSum(nums = [3,2,4], target = 6))
+print(ob1.twoSum(nums = [3,3], target = 6))
